@@ -1,795 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NAVEEN BATHINI - Minimalist Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for social icons. Replace 'YOUR_FONT_AWESOME_KIT' with your actual kit code from Font Awesome. -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-<style>/* Variables */
-:root {
-    --primary-color: #00ADB5; /* Teal */
-    --secondary-color: #EEEEEE; /* Light Gray */
-    --background-color: #02122b; /* Dark Slate */
-    --card-background: #34373c; /* Darker Gray */
-    --text-color: #EEEEEE;
-    --heading-color: #00ADB5;
-    --accent-color: #00ADB5;
-    --shadow-color: rgba(0, 0, 0, 0.4);
-
-    --font-primary: 'Montserrat', sans-serif;
-    --font-secondary: 'Roboto Mono', monospace;
-}
-
-/* Reset & Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: var(--font-primary);
-    background-color: var(--background-color);
-    color: var(--text-color);
-    line-height: 1.6;
-    overflow-x: hidden; /* Prevent horizontal scroll from reveal animations */
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-a {
-    color: var(--accent-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: var(--primary-color);
-}
-
-ul {
-    list-style: none;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-secondary);
-    color: var(--heading-color);
-    margin-bottom: 0.5em;
-    line-height: 1.2;
-}
-
-p {
-    margin-bottom: 1em;
-}
-
-.highlight {
-    color: var(--accent-color);
-    font-weight: 600;
-}
-
-/* Buttons */
-.btn {
-    display: inline-block;
-    padding: 12px 25px;
-    border-radius: 5px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-}
-
-.btn-primary {
-    background-color: var(--primary-color);
-    color: var(--background-color);
-    box-shadow: 0 4px 15px var(--shadow-color);
-}
-
-.btn-primary:hover {
-    background-color: #009DA5; /* Slightly darker teal */
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px var(--shadow-color);
-}
-
-.btn-secondary {
-    background-color: transparent;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-}
-
-.btn-secondary:hover {
-    background-color: var(--primary-color);
-    color: var(--background-color);
-    transform: translateY(-2px);
-}
-
-/* Header */
-.header {
-    background-color: var(--card-background);
-    padding: 15px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px var(--shadow-color);
-}
-
-.header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-family: var(--font-secondary);
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.logo:hover {
-    color: var(--secondary-color);
-}
-
-.nav-list {
-    display: flex;
-    gap: 30px;
-}
-
-.nav-link {
-    font-weight: 600;
-    font-size: 1.1rem;
-    position: relative;
-    color: var(--text-color);
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background-color: var(--primary-color);
-    bottom: -5px;
-    left: 0;
-    transition: width 0.3s ease-in-out;
-}
-
-.nav-link:hover::after,
-.nav-link.active::after {
-    width: 100%;
-}
-
-.nav-toggle {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-}
-
-.nav-toggle span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: var(--primary-color);
-    margin-bottom: 5px;
-    transition: all 0.3s ease;
-}
-
-/* Sections */
-.section {
-    padding: 80px 0;
-    text-align: center;
-}
-
-.section-title {
-    font-size: 3rem;
-    margin-bottom: 40px;
-    position: relative;
-    display: inline-block;
-    color: var(--primary-color);
-}
-
-.section-title::after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 4px;
-    background-color: var(--secondary-color);
-    margin: 10px auto 0;
-    border-radius: 2px;
-}
-
-/* Hero Section */
-.hero {
-    min-height: calc(100vh - 80px); /* Adjust for header height */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: left;
-    background: linear-gradient(135deg, var(--background-color) 0%, #1a1e24 100%);
-    position: relative;
-    overflow: hidden;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><pattern id="pattern-circles" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="1.5" fill="%23393E46" opacity="0.1"/></pattern><rect x="0" y="0" width="100%" height="100%" fill="url(%23pattern-circles)"/></svg>') repeat;
-    opacity: 0.1;
-    z-index: 1;
-}
-
-.hero .container {
-    position: relative;
-    z-index: 2;
-    text-align: center; /* Center content in hero */
-}
-
-.hero-subtitle {
-    font-size: 1.5rem;
-    color: var(--text-color);
-    margin-bottom: 10px;
-    font-family: var(--font-secondary);
-}
-
-.hero-title {
-    font-size: 4.5rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: var(--primary-color);
-    line-height: 1;
-}
-
-.hero-description {
-    font-size: 1.3rem;
-    max-width: 700px;
-    margin: 0 auto 30px;
-    color: var(--secondary-color);
-}
-
-/* About Section */
-.about .container {
-    text-align: center;
-}
-
-.about-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-    margin-top: 40px;
-}
-
-.about-image {
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 5px solid var(--primary-color);
-    box-shadow: 0 0 0 10px var(--card-background);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.about-image:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 0 10px var(--primary-color);
-}
-
-.about-text {
-    text-align: left;
-    max-width: 700px;
-}
-
-.about-text h3 {
-    margin-top: 20px;
-    color: var(--primary-color);
-}
-
-.skills-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 15px;
-}
-
-.skills-list li {
-    background-color: var(--card-background);
-    color: var(--text-color);
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-family: var(--font-secondary);
-    font-size: 0.9rem;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 2px 5px var(--shadow-color);
-}
-
-.skills-list li:hover {
-    background-color: var(--primary-color);
-    color: var(--background-color);
-    transform: translateY(-2px);
-}
-
-/* Projects Section */
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-    margin-top: 40px;
-}
-
-.project-card {
-    background-color: var(--card-background);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px var(--shadow-color);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-}
-
-.project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
-}
-
-.project-image {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    display: block;
-    border-bottom: 2px solid var(--primary-color);
-}
-
-.project-info {
-    padding: 25px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.project-info h3 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-    color: var(--primary-color);
-}
-
-.project-info p {
-    font-size: 1rem;
-    color: var(--secondary-color);
-    margin-bottom: 20px;
-    flex-grow: 1;
-}
-
-.project-links {
-    display: flex;
-    gap: 15px;
-    margin-top: 15px;
-}
-
-.project-links .btn {
-    padding: 10px 20px;
-    font-size: 0.9rem;
-}
-
-/* Contact Section */
-.contact-description {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 0 auto 30px;
-    color: var(--secondary-color);
-}
-
-.btn-contact {
-    margin-bottom: 30px;
-}
-
-.social-links {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-}
-
-.social-links a {
-    color: var(--text-color);
-    font-size: 2.5rem;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.social-links a:hover {
-    color: var(--primary-color);
-    transform: translateY(-5px);
-}
-
-/* Footer */
-.footer {
-    background-color: var(--card-background);
-    padding: 30px 0;
-    text-align: center;
-    font-size: 0.9rem;
-    color: var(--secondary-color);
-    border-top: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-/* Responsive Design */
-@media (min-width: 768px) {
-    .about-content {
-        flex-direction: row;
-        text-align: left;
-        align-items: flex-start;
-        justify-content: center;
-    }
-
-    .about-image {
-        flex-shrink: 0; /* Prevent shrinking */
-        margin-right: 40px;
-    }
-}
-
-@media (max-width: 767px) {
-    .header .container {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .logo {
-        width: 100%;
-        text-align: center;
-        margin-bottom: 15px;
-    }
-
-    .nav {
-        order: 3; /* Move nav below logo and toggle */
-        width: 100%;
-        display: none; /* Hidden by default */
-        text-align: center;
-    }
-
-    .nav.nav-active {
-        display: block;
-    }
-
-    .nav-list {
-        flex-direction: column;
-        gap: 15px;
-        margin-top: 15px;
-    }
-
-    .nav-toggle {
-        display: block;
-        position: absolute;
-        right: 20px;
-        top: 20px;
-    }
-
-    .nav-toggle.active span:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-
-    .nav-toggle.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .nav-toggle.active span:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-
-    .hero-title {
-        font-size: 3rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1.2rem;
-    }
-
-    .hero-description {
-        font-size: 1rem;
-    }
-
-    .section {
-        padding: 60px 0;
-    }
-
-    .section-title {
-        font-size: 2.5rem;
-    }
-
-    .about-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .about-image {
-        margin-right: 0;
-        margin-bottom: 30px;
-    }
-
-    .about-text {
-        padding: 0 15px;
-    }
-
-    .project-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .project-card {
-        margin-bottom: 20px;
-    }
-
-    .project-links {
-        flex-direction: column;
-        gap: 10px;
-    }
-}
-
-/* Animations (reveal sections on scroll) */
-.reveal {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Specific hero section element animations */
-.hero-subtitle,
-.hero-title,
-.hero-description,
-.hero .btn {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInSlideUp 1s ease-out forwards;
-}
-
-.hero-subtitle { animation-delay: 0.1s; }
-.hero-title { animation-delay: 0.2s; }
-.hero-description { animation-delay: 0.3s; }
-.hero .btn { animation-delay: 0.4s; }
-
-@keyframes fadeInSlideUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}</style></head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NAVEEN BATHINI - Minimalist Portfolio</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/style.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
 <body>
-    <header class="header">
-        <div class="container">
-            <a href="#home" class="logo">Portfolio</a>
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li><a href="#home" class="nav-link">Home</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-<li><a href="https://drive.google.com/drive/folders/1NQVkKnTKCL9Y3oINfGGbwv04YDhrcbuL?usp=sharing" class="nav-link">Certificates</a></li>
-                </ul>
-            </nav>
-            <button class="nav-toggle" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <a href="#home" class="logo">Portfolio</a>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+          <li><a href="https://drive.google.com/drive/folders/1NQVkKnTKCL9Y3oINfGGbwv04YDhrcbuL?usp=sharing" class="nav-link">Certificates</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main>
+    <!-- Hero -->
+    <section id="home" class="hero section reveal">
+      <div class="container">
+        <p class="hero-subtitle">Hello, I'm</p>
+        <h1 class="hero-title">NAVEEN BATHINI.</h1>
+        <p class="hero-description">
+          A passionate <span class="highlight">Frontend Developer</span> creating modern, responsive, and user-friendly web experiences. And <span class="highlight">Data Scientist</span> Enthusiast.
+        </p>
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="https://drive.google.com/file/d/1MzYn9j6m8rMFo9GsLUM0yQkUA524ukxF/view?usp=sharing" class="btn btn-primary">Resume</a>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about section reveal">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+          <img src="assets/pfimage.png" alt="Naveen Bathini" class="about-image">
+          <div class="about-text">
+            <p>
+              I'm a self-taught frontend developer with a keen eye for design and a passion for bringing ideas to life through code. With 3+ years of experience, I specialize in building robust and scalable web applications using modern JavaScript frameworks.
+            </p>
+            <p>
+              My journey in web development began with a curiosity for how websites work, evolving into a dedicated pursuit of crafting exceptional user interfaces. I thrive on solving complex problems and continuously learning new technologies to deliver cutting-edge solutions.
+            </p>
+            <h3>Skills:</h3>
+            <ul class="skills-list">
+              <li>HTML5, CSS3, JavaScript (ES6+)</li>
+              <li>React</li>
+              <li>Sass, Less, Styled Components</li>
+              <li>Webpack, Vite, npm</li>
+              <li>Git, GitHub</li>
+              <li>Responsive Design, UI/UX Principles</li>
+            </ul>
+          </div>
         </div>
-    </header>
+      </div>
+    </section>
 
-    <main>
-        <section id="home" class="hero section reveal">
-            <div class="container">
-                <p class="hero-subtitle">Hello, I'm</p>
-                <h1 class="hero-title">NAVEEN BATHINI .</h1>
-                <p class="hero-description">A passionate <span class="highlight">Frontend Developer</span> creating modern, responsive, and user-friendly web experiences.And <span class="highlight">Data Scientist</span> Enthusiast. </p>
-                <a href="#projects" class="btn btn-primary">View My Work</a>
-                <a href="https://drive.google.com/file/d/1MzYn9j6m8rMFo9GsLUM0yQkUA524ukxF/view?usp=sharing" class="btn btn-primary">Resume </a>
+    <!-- Projects -->
+    <section id="projects" class="projects section reveal">
+      <div class="container">
+        <h2 class="section-title">My Projects</h2>
+        <div class="project-grid">
+
+          <div class="project-card">
+            <img src="assets/imm.png" alt="Snap2Sustain" class="project-image">
+            <div class="project-info">
+              <h3>Snap2Sustain</h3>
+              <p>
+                Become a Hero. Clean Your Community. Join thousands of volunteers making a difference by reporting and cleaning up waste in their neighborhoods. Earn rewards while helping your community shine.
+              </p>
+              <div class="project-links">
+                <a href="https://snapsustain.vercel.app/" class="btn btn-secondary" target="_blank">Live Demo</a>
+                <a href="https://github.com/mightynawiin/SNAPSUSTAIN" class="btn btn-secondary" target="_blank">GitHub</a>
+              </div>
             </div>
-        </section>
+          </div>
 
-        <section id="about" class="about section reveal">
-            <div class="container">
-                <h2 class="section-title">About Me</h2>
-                <div class="about-content">
-                    <img src="pfimage.png" alt="John Doe" class="about-image">
-                    <div class="about-text">
-                        <p style="font-family: Georgia, 'Times New Roman', Times, serifx;";font-size:40px;>I'm a self-taught frontend developer with a keen eye for design and a passion for bringing ideas to life through code. With 3+ years of experience, I specialize in building robust and scalable web applications using modern JavaScript frameworks.</p>
-                        <p>My journey in web development began with a curiosity for how websites work, evolving into a dedicated pursuit of crafting exceptional user interfaces. I thrive on solving complex problems and continuously learning new technologies to deliver cutting-edge solutions.</p>
-                        <h3>Skills:</h3>
-                        <ul class="skills-list">
-                            <li>HTML5, CSS3, JavaScript (ES6+)</li>
-                            <li>React</li>
-                            <li>Sass, Less, Styled Components</li>
-                            <li>Webpack, Vite, npm</li>
-                            <li>Git, GitHub</li>
-                            <li>Responsive Design, UI/UX Principles</li>
-                        </ul>
-                    </div>
-                </div>
+          <div class="project-card">
+            <img src="assets/lpost.jpeg" alt="deepseek-medical-model" class="project-image">
+            <div class="project-info">
+              <h3>deepseek-medical-model</h3>
+              <p>Ask a question about any health-related issue; it will give you the reasoning and answer by thinking like a doctor.</p>
+              <div class="project-links">
+                <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
+                <a href="https://github.com/mightynawiin/deepseek-medical-model" class="btn btn-secondary" target="_blank">GitHub</a>
+              </div>
             </div>
-        </section>
+          </div>
 
-        <section id="projects" class="projects section reveal">
-            <div class="container">
-                <h2 class="section-title">My Projects</h2>
-                <div class="project-grid">
-                    <div class="project-card">
-                        <img src="imm.png" alt="Project 1" class="project-image">
-                        <div class="project-info">
-                            <h3>Snap2Sustain</h3>
-                            <p>Become a Hero.
-Clean Your Community.
-Join thousands of volunteers making a difference by reporting and cleaning up waste in their neighborhoods. Earn rewards while helping your community shine.</p>
-                            <div class="project-links">
-                                <a href="https://snapsustain.vercel.app/" class="btn btn-secondary" target="_blank">Live Demo</a>
-                                <a href="https://github.com/mightynawiin/SNAPSUSTAIN?tab=readme-ov-file" class="btn btn-secondary" target="_blank">GitHub</a>
-                            </div>              
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <img src="lpost.jpeg" alt="Project 2" class="project-image">
-                        <div class="project-info">
-                            <h3>deepseek-medical-model</h3>
-                            <p>Ask a question about any health related issue it will give you the reasoning and answer by thinking like a doctor</p>
-                            <div class="project-links">
-                                <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-                                <a href="https://github.com/mightynawiin/deepseek-medical-model" class="btn btn-secondary" target="_blank">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <img src="image.png" alt="Project 3" class="project-image">
-                        <div class="project-info">
-                            <h3>StarBucks Replca</h3>
-                            <p>A StarBucks like app to order the food items from the website</p>
-                            <div class="project-links">
-                                <a href="https://starbucks-replica-olive.vercel.app/" class="btn btn-secondary" target="_blank">Live Demo</a>
-                                <a href="https://github.com/mightynawiin/Starbucks-Replica" class="btn btn-secondary" target="_blank">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <div class="project-card">
+            <img src="assets/image.png" alt="Starbucks Replica" class="project-image">
+            <div class="project-info">
+              <h3>StarBucks Replica</h3>
+              <p>A Starbucks-like app to order food items from the website.</p>
+              <div class="project-links">
+                <a href="https://starbucks-replica-olive.vercel.app/" class="btn btn-secondary" target="_blank">Live Demo</a>
+                <a href="https://github.com/mightynawiin/Starbucks-Replica" class="btn btn-secondary" target="_blank">GitHub</a>
+              </div>
             </div>
-        </section>
+          </div>
 
-        <section id="contact" class="contact section reveal">
-            <div class="container">
-                <h2 class="section-title">Get In Touch</h2>
-                <p class="contact-description">I'm always open to new opportunities, collaborations, or just a friendly chat. Feel free to reach out!</p>
-                <a href="mailto:johndoe@example.com" class="btn btn-primary btn-contact">Email Me</a>
-                <div class="social-links">
-                    <a href="https://github.com/mightynawiin" target="_blank" aria-label="GitHub">github<i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/naveen-bathini-b227662a3/" target="_blank" aria-label="LinkedIn">LinkedIn<i class="fab fa-linkedin"></i></a>
-                    <a href="https://twitter.com/yourusername" target="_blank" aria-label="Twitter">Twitter<i class="fab fa-twitter"></i></a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 NAVEEN BATHINI. All rights reserved.</p>
         </div>
-    </footer>
-    <script src="script.js"></script>
-<script>document.addEventListener('DOMContentLoaded', () => {
-    // Smooth scroll for navigation links
-    document.querySelectorAll('.nav-link').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
+      </div>
+    </section>
 
-            const targetId = this.getAttribute('href');
-            if (targetId.startsWith('#')) {
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    const headerOffset = document.querySelector('.header').offsetHeight;
-                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                    const offsetPosition = elementPosition - headerOffset - 20; // Added a bit more padding
+    <!-- Contact -->
+    <section id="contact" class="contact section reveal">
+      <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="contact-description">
+          I'm always open to new opportunities, collaborations, or just a friendly chat. Feel free to reach out!
+        </p>
+        <a href="mailto:johndoe@example.com" class="btn btn-primary btn-contact">Email Me</a>
+        <div class="social-links">
+          <a href="https://github.com/mightynawiin" target="_blank" aria-label="GitHub">GitHub <i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/naveen-bathini-b227662a3/" target="_blank" aria-label="LinkedIn">LinkedIn <i class="fab fa-linkedin"></i></a>
+          <a href="https://twitter.com/yourusername" target="_blank" aria-label="Twitter">Twitter <i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 NAVEEN BATHINI. All rights reserved.</p>
+    </div>
+  </footer>
 
-                    // Close mobile nav if open
-                    const nav = document.querySelector('.nav');
-                    const navToggle = document.querySelector('.nav-toggle');
-                    if (nav.classList.contains('nav-active')) {
-                        nav.classList.remove('nav-active');
-                        navToggle.classList.remove('active');
-                    }
-                }
-            }
-        });
-    });
-
-    // Mobile navigation toggle
-    const navToggle = document.querySelector('.nav-toggle');
-    const nav = document.querySelector('.nav');
-
-    if (navToggle && nav) {
-        navToggle.addEventListener('click', () => {
-            nav.classList.toggle('nav-active');
-            navToggle.classList.toggle('active');
-        });
-    }
-
-    // Scroll reveal animation using Intersection Observer
-    const revealElements = document.querySelectorAll('.reveal');
-
-    const observerOptions = {
-        root: null, // viewport
-        rootMargin: '0px',
-        threshold: 0.1 // 10% of the element must be visible
-    };
-
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                // Only unobserve for non-hero sections, so hero content animations can be seen on page load
-                if (!entry.target.classList.contains('hero')) {
-                    observer.unobserve(entry.target); // Stop observing once revealed
-                }
-            }
-        });
-    }, observerOptions);
-
-    revealElements.forEach(el => {
-        revealObserver.observe(el);
-    });
-
-    // Add active class to nav link on scroll
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    const setActiveNavLink = () => {
-        let current = '';
-        const headerHeight = document.querySelector('.header').offsetHeight;
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - headerHeight - 50; // Adjust for header and extra padding
-            if (pageYOffset >= sectionTop) {
-                current = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').includes(current)) {
-                link.classList.add('active');
-            }
-        });
-    };
-
-    // Initial check and on scroll
-    setActiveNavLink();
-    window.addEventListener('scroll', setActiveNavLink);
-});</script></body>
+  <!-- JS -->
+  <script src="assets/script.js"></script>
+</body>
 </html>
